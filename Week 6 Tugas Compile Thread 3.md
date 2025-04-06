@@ -75,7 +75,7 @@ int main() {
 ---
 
 ### Output
-
+![](https://github.com/adityarizq433/SisOp-2025/blob/25f5f2afa2f169dd9fd815b14f2d9026c96e519c/output%20compile%20thread%203.png)<br>
 Program akan mencetak angka `1 2 3` secara terus menerus dalam urutan berulang.  
 Untuk menghentikan program, tekan `Ctrl+C`.
 
