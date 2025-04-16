@@ -11,6 +11,35 @@ Sumber: [osc10e - ch4](https://github.com/ferryastika/osc10e/tree/master/ch4)
 
 File SumTask.java menggunakan framework Fork/Join di Java untuk membagi tugas penjumlahan array besar menjadi sub-tugas yang lebih kecil. Kelas ini memperluas RecursiveTask<Long> dan mengimplementasikan metode compute() untuk memproses bagian dari array. Jika ukuran bagian lebih kecil dari ambang batas tertentu, penjumlahan dilakukan secara langsung; jika tidak, tugas dibagi lagi dan diproses secara rekursif. Pendekatan ini memanfaatkan kemampuan multi-core untuk meningkatkan kinerja komputasi.​
 
+### Code: `SumTask.java`
+
+```java
+public class SumTask implements Runnable {
+    private int[] array;
+    private int start;
+    private int end;
+    private int sum;
+
+    public SumTask(int[] array, int start, int end) {
+        this.array = array;
+        this.start = start;
+        this.end = end;
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    @Override
+    public void run() {
+        sum = 0;
+        for (int i = start; i < end; i++) {
+            sum += array[i];
+        }
+    }
+}
+```
+
 ---
 
 ## b. Penerapan Thread di Linux (`thrd-posix.c`) dan Windows (`thrd-win32.c`)
